@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: xn--kivimki-9wa.ch
+Token: 2dfa13fb8314a3bfe418bc7427f54b381e767af84133bd613149ee17b5236349
