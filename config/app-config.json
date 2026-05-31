@@ -1,0 +1,120 @@
+{
+  "title": "Publisher",
+  "description": "A client-side markdown knowledge base publisher.",
+  "site": {
+    "url": "https://petrikivimaki.github.io/",
+    "customDomain": "",
+    "hashRouting": true
+  },
+  "defaultFile": "README.md",
+  "home": {
+    "title": "Publisher",
+    "subtitle": "A client-side knowledge base for publishing markdown vaults.",
+    "ctas": [
+      {
+        "title": "What Publisher does",
+        "description": "A quick orientation to the project.",
+        "path": "start/publisher.md"
+      },
+      {
+        "title": "Setup workflow",
+        "description": "Clone, configure, write, and publish.",
+        "path": "workflow/setup.md"
+      },
+      {
+        "title": "Markdown basics",
+        "description": "Core syntax and project extensions.",
+        "path": "reference/markdown.md"
+      }
+    ],
+    "background": {
+      "enabled": true,
+      "image": "images/bg-lucerne.jpeg",
+      "grayscale": true
+    }
+  },
+  "github": {
+    "enabled": true,
+    "owner": "petrikivimaki",
+    "repo": "gh-pages-content",
+    "branch": "master",
+    "rootPath": "notes",
+    "assetRootPath": "images"
+  },
+  "localFallback": {
+    "enabled": false,
+    "manifest": ""
+  },
+  "externalLinks": {
+    "utm": {
+      "enabled": true,
+      "params": {
+        "utm_source": "petrikivimaki.github.io",
+        "utm_medium": "referral",
+        "utm_campaign": "knowledge-base"
+      }
+    }
+  },
+  "maps": {
+    "enabled": true,
+    "fallback": {
+      "latitude": 60.1699,
+      "longitude": 24.9384,
+      "zoom": 11
+    },
+    "grayscale": true
+  },
+  "reading": {
+    "wordsPerMinute": 225
+  },
+  "obsidian": {
+    "vault": "Publisher",
+    "rootPath": ""
+  },
+  "linktree": {
+    "links": [
+      {
+        "label": "My GitHub",
+        "type": "github",
+        "url": "https://github.com/petrikivimaki"
+      },
+      {
+        "label": "Project repository",
+        "type": "github",
+        "url": "https://github.com/petrikivimaki/serverless-publisher"
+      }
+    ]
+  },
+  "contentRights": {
+    "copyright": "(c) 2026 Petri Mikael Kivimäki",
+    "license": ""
+  },
+  "metadata": {
+    "allowedKeys": [
+      "title",
+      "tags",
+      "authors",
+      "license",
+      "copyright",
+      "status"
+    ]
+  },
+  "pageLoadAnimation": {
+    "enabled": true,
+    "logo": "images/logo-white-transparent-1000x1000.png",
+    "durationMs": 1500,
+    "fadeMs": 420
+  },
+  "appearance": {
+    "fontSize": 18,
+    "textAlign": "left",
+    "lineHeight": 1.68,
+    "theme": "dark",
+    "firstDayOfWeek": 1
+  },
+  "features": {
+    "showFrontmatter": true,
+    "showBacklinks": true,
+    "showGraph": true
+  }
+}

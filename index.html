@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+            name="description"
+            content="Publisher is a serverless markdown knowledge base frontend for Obsidian & GitHub Pages."
+        />
+        <meta name="application-name" content="Publisher" />
+        <meta name="generator" content="Publisher" />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <meta name="robots" content="index, follow" />
+        <meta name="color-scheme" content="dark light" />
+        <meta name="theme-color" content="RGB(17,24,39)" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-title" content="Publisher" />
+        <meta
+            name="apple-mobile-web-app-status-bar-style"
+            content="black-translucent"
+        />
+        <meta name="format-detection" content="telephone=no" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Publisher" />
+        <meta property="og:title" content="Publisher" />
+        <meta
+            property="og:description"
+            content="A serverless markdown knowledge base publisher for Obsidian & GitHub Pages."
+        />
+        <meta property="og:url" content="https://petrikivimaki.github.io/" />
+        <meta property="og:locale" content="en_US" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Publisher" />
+        <meta
+            name="twitter:description"
+            content="A serverless markdown knowledge base publisher for Obsidian & GitHub Pages."
+        />
+        <link rel="canonical" href="https://petrikivimaki.github.io/" />
+        <title>Publisher</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/themes/prism-tomorrow.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/maplibre-gl@5.12.0/dist/maplibre-gl.css"
+        />
+        <link rel="stylesheet" href="styles/main.css" />
+        <script type="module" src="scripts/app.js"></script>
+    </head>
+    <body>
+        <div class="app-shell">
+            <aside class="rail" aria-label="Primary tools">
+                <button
+                    class="rail-button is-active"
+                    type="button"
+                    data-action="open-home"
+                    aria-label="Home"
+                    title="Home"
+                >
+                    <i class="fa-solid fa-house" aria-hidden="true"></i>
+                </button>
+                <button
+                    class="rail-button is-active"
+                    type="button"
+                    data-panel="files"
+                    aria-label="Files"
+                    title="Files"
+                >
+                    <i class="fa-solid fa-folder-tree" aria-hidden="true"></i>
+                </button>
+                <button
+                    class="rail-button"
+                    type="button"
+                    data-panel="search"
+                    aria-label="Search"
+                    title="Search"
+                >
+                    <i
+                        class="fa-solid fa-magnifying-glass"
+                        aria-hidden="true"
+                    ></i>
+                </button>
+                <button
+                    class="rail-button"
+                    type="button"
+                    data-panel="calendar"
+                    aria-label="Calendar"
+                    title="Calendar"
+                >
+                    <i
+                        class="fa-regular fa-calendar-days"
+                        aria-hidden="true"
+                    ></i>
+                </button>
+                <button
+                    class="rail-button"
+                    type="button"
+                    data-panel="bookmarks"
+                    aria-label="Bookmarks"
+                    title="Bookmarks"
+                >
+                    <i class="fa-regular fa-bookmark" aria-hidden="true"></i>
+                </button>
+                <button
+                    class="rail-button"
+                    type="button"
+                    data-panel="graph"
+                    aria-label="Graph"
+                    title="Graph"
+                >
+                    <i
+                        class="fa-solid fa-diagram-project"
+                        aria-hidden="true"
+                    ></i>
+                </button>
+                <button
+                    class="rail-button"
+                    type="button"
+                    data-panel="linktree"
+                    aria-label="Linktree"
+                    title="Linktree"
+                >
+                    <i class="fa-solid fa-link" aria-hidden="true"></i>
+                </button>
+                <div class="rail-spacer" aria-hidden="true"></div>
+                <button
+                    class="rail-button"
+                    type="button"
+                    data-action="rotate-theme"
+                    aria-label="Change theme"
+                    title="Theme: Light"
+                    data-theme-toggle
+                >
+                    <i
+                        class="fa-solid fa-circle-half-stroke"
+                        aria-hidden="true"
+                    ></i>
+                </button>
+                <button
+                    class="rail-button"
+                    type="button"
+                    data-action="toggle-right"
+                    aria-label="Article info"
+                    title="Article info"
+                >
+                    <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                </button>
+            </aside>
+
+            <aside class="left-panel" data-left-panel>
+                <header class="panel-header">
+                    <div>
+                        <p class="eyebrow" data-vault-source>Local vault</p>
+                        <h1 data-vault-title>Publisher</h1>
+                    </div>
+                    <button
+                        class="icon-button"
+                        type="button"
+                        data-action="refresh"
+                        aria-label="Refresh content"
+                        title="Refresh content"
+                    >
+                        <i
+                            class="fa-solid fa-rotate-right"
+                            aria-hidden="true"
+                        ></i>
+                    </button>
+                </header>
+
+                <section
+                    class="panel-view is-active"
+                    data-view="files"
+                    aria-label="Files"
+                >
+                    <div class="panel-toolbar">
+                        <label class="field">
+                            <span>Filter files</span>
+                            <input
+                                type="search"
+                                data-file-filter
+                                placeholder="Type to filter"
+                            />
+                        </label>
+                    </div>
+                    <nav
+                        class="file-tree"
+                        data-file-tree
+                        aria-label="Markdown files"
+                    ></nav>
+                </section>
+
+                <section
+                    class="panel-view"
+                    data-view="search"
+                    aria-label="Search"
+                >
+                    <div class="panel-toolbar">
+                        <label class="field">
+                            <span>Search vault</span>
+                            <input
+                                type="search"
+                                data-search-input
+                                placeholder="Words, tags, links"
+                            />
+                        </label>
+                    </div>
+                    <div class="search-results" data-search-results></div>
+                </section>
+
+                <section
+                    class="panel-view"
+                    data-view="calendar"
+                    aria-label="Calendar"
+                >
+                    <div class="calendar-panel">
+                        <div class="calendar-toolbar">
+                            <button
+                                class="icon-button"
+                                type="button"
+                                data-action="previous-month"
+                                aria-label="Previous month"
+                                title="Previous month"
+                            >
+                                <i
+                                    class="fa-solid fa-chevron-left"
+                                    aria-hidden="true"
+                                ></i>
+                            </button>
+                            <button
+                                class="today-button"
+                                type="button"
+                                data-action="current-month"
+                            >
+                                <span
+                                    class="calendar-current"
+                                    data-calendar-title
+                                ></span>
+                            </button>
+                            <button
+                                class="icon-button"
+                                type="button"
+                                data-action="next-month"
+                                aria-label="Next month"
+                                title="Next month"
+                            >
+                                <i
+                                    class="fa-solid fa-chevron-right"
+                                    aria-hidden="true"
+                                ></i>
+                            </button>
+                        </div>
+                        <div
+                            class="calendar-grid calendar-weekdays"
+                            data-calendar-weekdays
+                            aria-hidden="true"
+                        ></div>
+                        <div
+                            class="calendar-grid calendar-days"
+                            data-calendar-days
+                        ></div>
+                    </div>
+                </section>
+
+                <section
+                    class="panel-view"
+                    data-view="bookmarks"
+                    aria-label="Bookmarks"
+                >
+                    <div class="panel-toolbar">
+                        <button
+                            class="danger-button"
+                            type="button"
+                            data-action="clear-bookmarks"
+                        >
+                            <i
+                                class="fa-solid fa-trash-can"
+                                aria-hidden="true"
+                            ></i>
+                            <span>Remove all bookmarks</span>
+                        </button>
+                    </div>
+                    <div class="bookmarks-list" data-bookmarks-list></div>
+                </section>
+
+                <section
+                    class="panel-view"
+                    data-view="graph"
+                    aria-label="Graph"
+                >
+                    <div class="graph-list" data-graph-list></div>
+                </section>
+
+                <section
+                    class="panel-view"
+                    data-view="linktree"
+                    aria-label="Linktree"
+                >
+                    <div class="linktree-list" data-linktree-list></div>
+                </section>
+            </aside>
+
+            <main class="workspace">
+                <article class="article" data-article>
+                    <div class="empty-state">
+                        <i
+                            class="fa-regular fa-file-lines"
+                            aria-hidden="true"
+                        ></i>
+                        <h2>Select a note</h2>
+                        <p>
+                            Choose a markdown file from the vault to start
+                            reading.
+                        </p>
+                    </div>
+                </article>
+            </main>
+
+            <aside class="right-panel" data-right-panel>
+                <header class="panel-header">
+                    <div>
+                        <p class="eyebrow">Context</p>
+                        <h2>Article info</h2>
+                    </div>
+                </header>
+                <section
+                    class="info-section qr-code-block"
+                    data-qr-code-block
+                    hidden
+                >
+                    <h3>QR Code</h3>
+                    <div class="qr-code-card">
+                        <img
+                            src=""
+                            alt="QR code generated from selected text"
+                            data-qr-code-image
+                        />
+                        <p data-qr-code-summary></p>
+                    </div>
+                </section>
+                <section class="info-section">
+                    <h3>Bookmark</h3>
+                    <button
+                        class="bookmark-button"
+                        type="button"
+                        data-action="toggle-bookmark"
+                        disabled
+                    >
+                        <i
+                            class="fa-regular fa-bookmark"
+                            aria-hidden="true"
+                            data-bookmark-icon
+                        ></i>
+                        <span data-bookmark-label>Bookmark note</span>
+                    </button>
+                </section>
+                <section class="info-section">
+                    <h3>Source</h3>
+                    <div class="source-links">
+                        <a
+                            class="source-link"
+                            href="#"
+                            target="_blank"
+                            rel="noreferrer"
+                            data-source-repo-link
+                        >
+                            <i
+                                class="fa-brands fa-github"
+                                aria-hidden="true"
+                            ></i>
+                            <span>Repository</span>
+                        </a>
+                        <a
+                            class="source-link"
+                            href="#"
+                            target="_blank"
+                            rel="noreferrer"
+                            data-source-article-link
+                        >
+                            <i
+                                class="fa-regular fa-file-code"
+                                aria-hidden="true"
+                            ></i>
+                            <span>Article file</span>
+                        </a>
+                    </div>
+                    <div class="source-actions">
+                        <button
+                            class="source-button"
+                            type="button"
+                            data-action="copy-source-url"
+                            disabled
+                        >
+                            <i
+                                class="fa-regular fa-copy"
+                                aria-hidden="true"
+                            ></i>
+                            <span>Copy article URL</span>
+                        </button>
+                        <button
+                            class="source-button"
+                            type="button"
+                            data-action="copy-published-url"
+                            disabled
+                        >
+                            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+                            <span>Copy site URL</span>
+                        </button>
+                        <button
+                            class="source-button"
+                            type="button"
+                            data-action="copy-article-content"
+                            disabled
+                        >
+                            <i
+                                class="fa-regular fa-file-lines"
+                                aria-hidden="true"
+                            ></i>
+                            <span>Copy article content</span>
+                        </button>
+                        <button
+                            class="source-button"
+                            type="button"
+                            data-action="open-obsidian"
+                            disabled
+                        >
+                            <i
+                                class="fa-solid fa-diamond"
+                                aria-hidden="true"
+                            ></i>
+                            <span>Open in Obsidian</span>
+                        </button>
+                        <a
+                            class="source-button source-download-link is-disabled"
+                            href="#"
+                            download
+                            data-source-download-link
+                            aria-disabled="true"
+                        >
+                            <i
+                                class="fa-solid fa-download"
+                                aria-hidden="true"
+                            ></i>
+                            <span>Download article</span>
+                        </a>
+                    </div>
+                </section>
+                <section class="info-section">
+                    <h3>Text</h3>
+                    <div class="reader-controls" aria-label="Text controls">
+                        <label class="range-control">
+                            <span
+                                >Font size
+                                <output data-font-size-value>18px</output></span
+                            >
+                            <input
+                                type="range"
+                                min="14"
+                                max="24"
+                                step="1"
+                                value="18"
+                                data-font-size
+                            />
+                        </label>
+                        <fieldset class="orientation-control">
+                            <legend>Orientation</legend>
+                            <label title="Align left">
+                                <input
+                                    type="radio"
+                                    name="text-orientation"
+                                    value="left"
+                                    data-text-orientation
+                                />
+                                <i
+                                    class="fa-solid fa-align-left"
+                                    aria-hidden="true"
+                                ></i>
+                                <span>Left</span>
+                            </label>
+                            <label title="Align center">
+                                <input
+                                    type="radio"
+                                    name="text-orientation"
+                                    value="center"
+                                    data-text-orientation
+                                />
+                                <i
+                                    class="fa-solid fa-align-center"
+                                    aria-hidden="true"
+                                ></i>
+                                <span>Center</span>
+                            </label>
+                            <label title="Justify text">
+                                <input
+                                    type="radio"
+                                    name="text-orientation"
+                                    value="justify"
+                                    data-text-orientation
+                                />
+                                <i
+                                    class="fa-solid fa-align-justify"
+                                    aria-hidden="true"
+                                ></i>
+                                <span>Justified</span>
+                            </label>
+                            <label title="Align right">
+                                <input
+                                    type="radio"
+                                    name="text-orientation"
+                                    value="right"
+                                    data-text-orientation
+                                />
+                                <i
+                                    class="fa-solid fa-align-right"
+                                    aria-hidden="true"
+                                ></i>
+                                <span>Right</span>
+                            </label>
+                        </fieldset>
+                        <label class="range-control">
+                            <span
+                                >Line height
+                                <output data-line-height-value
+                                    >1.68</output
+                                ></span
+                            >
+                            <input
+                                type="range"
+                                min="1.2"
+                                max="2.2"
+                                step="0.05"
+                                value="1.68"
+                                data-line-height
+                            />
+                        </label>
+                    </div>
+                </section>
+                <section class="info-section">
+                    <h3>Metadata</h3>
+                    <dl class="metadata-list" data-metadata-list></dl>
+                </section>
+                <section class="info-section">
+                    <h3>Table of Contents</h3>
+                    <nav
+                        class="toc-list"
+                        data-toc-list
+                        aria-label="Table of contents"
+                    ></nav>
+                </section>
+                <section class="info-section">
+                    <h3>Backlinks</h3>
+                    <div class="link-list" data-backlink-list></div>
+                </section>
+                <section class="info-section">
+                    <h3>Outgoing links</h3>
+                    <div class="link-list" data-outgoing-list></div>
+                </section>
+            </aside>
+        </div>
+
+        <div class="selection-menu" data-selection-menu hidden>
+            <div class="selection-count" data-selection-count>0 characters</div>
+            <div class="selection-actions">
+                <button type="button" data-action="copy-selection">
+                    <i class="fa-regular fa-copy" aria-hidden="true"></i>
+                    <span>Copy</span>
+                </button>
+                <button type="button" data-action="qr-selection">
+                    <i class="fa-solid fa-qrcode" aria-hidden="true"></i>
+                    <span>QR code</span>
+                </button>
+                <button type="button" data-action="search-selection-google">
+                    <i class="fa-brands fa-google" aria-hidden="true"></i>
+                    <span>Google</span>
+                </button>
+                <button type="button" data-action="search-selection-brave">
+                    <i
+                        class="fa-solid fa-magnifying-glass"
+                        aria-hidden="true"
+                    ></i>
+                    <span>Brave</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="toast" data-toast role="status" aria-live="polite"></div>
+        <div class="page-load-mask" data-page-load-mask aria-hidden="true">
+            <img class="page-load-logo" src="" alt="" data-page-load-logo />
+        </div>
+    </body>
+</html>

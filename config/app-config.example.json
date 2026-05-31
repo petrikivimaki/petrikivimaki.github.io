@@ -1,0 +1,131 @@
+{
+	"$schema": "./app-config.schema.json",
+	"title": "Publisher",
+	"description": "A client-side markdown knowledge base publisher.",
+	"site": {
+		"url": "https://your-user-or-org.github.io/",
+		"customDomain": "",
+		"hashRouting": true
+	},
+	"defaultFile": "README.md",
+	"home": {
+		"title": "Publisher",
+		"subtitle": "A client-side knowledge base for publishing markdown vaults.",
+		"ctas": [
+			{
+				"title": "Start here",
+				"description": "A short orientation note.",
+				"path": "README.md"
+			},
+			{
+				"title": "Publishing guide",
+				"description": "Key workflow details.",
+				"path": "notes/publishing-guide.md"
+			}
+		],
+		"background": {
+			"enabled": true,
+			"image": "images/bg-lucerne.jpeg",
+			"grayscale": false
+		}
+	},
+	"github": {
+		"enabled": true,
+		"owner": "your-user-or-org",
+		"repo": "your-markdown-vault",
+		"branch": "main",
+		"rootPath": "notes",
+		"assetRootPath": "images"
+	},
+	"localFallback": {
+		"enabled": false,
+		"manifest": "docs/manifest.json"
+	},
+	"externalLinks": {
+		"utm": {
+			"enabled": true,
+			"params": {
+				"utm_source": "publisher",
+				"utm_medium": "referral",
+				"utm_campaign": "knowledge-base"
+			}
+		}
+	},
+	"maps": {
+		"enabled": true,
+		"fallback": {
+			"latitude": 60.1699,
+			"longitude": 24.9384,
+			"zoom": 11
+		},
+		"grayscale": false
+	},
+	"reading": {
+		"wordsPerMinute": 225
+	},
+	"obsidian": {
+		"vault": "Your Obsidian vault",
+		"rootPath": ""
+	},
+	"linktree": {
+		"links": [
+			{
+				"label": "YouTube",
+				"type": "youtube",
+				"url": "https://youtube.com/@your-channel"
+			},
+			{
+				"label": "Instagram",
+				"type": "instagram",
+				"url": "https://instagram.com/your-profile"
+			},
+			{
+				"label": "X",
+				"type": "x",
+				"url": "https://x.com/your-profile"
+			},
+			{
+				"label": "Discord",
+				"type": "discord",
+				"url": "https://discord.gg/your-invite"
+			},
+			{
+				"label": "Website",
+				"type": "website",
+				"url": "https://example.com"
+			}
+		]
+	},
+	"contentRights": {
+		"copyright": "(c) 2026 Your Name",
+		"license": "CC BY 4.0"
+	},
+	"metadata": {
+		"allowedKeys": [
+			"title",
+			"tags",
+			"authors",
+			"license",
+			"copyright",
+			"status"
+		]
+	},
+	"pageLoadAnimation": {
+		"enabled": true,
+		"logo": "images/logo-white-transparent-1000x1000.png",
+		"durationMs": 1500,
+		"fadeMs": 420
+	},
+	"appearance": {
+		"fontSize": 18,
+		"textAlign": "left",
+		"lineHeight": 1.68,
+		"theme": "light",
+		"firstDayOfWeek": 1
+	},
+	"features": {
+		"showFrontmatter": true,
+		"showBacklinks": true,
+		"showGraph": true
+	}
+}
