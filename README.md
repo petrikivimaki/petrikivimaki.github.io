@@ -1,3 +1,3 @@
 # petrikivimaki.github.io
 
-See [serverless-publisher](https://github.com/petrikivimaki/serverless-publisher) for my `MIT-licensed` project that runs this page!
+See [papyrus](https://github.com/petrikivimaki/papyrus) for my `MIT-licensed` project that runs this page!

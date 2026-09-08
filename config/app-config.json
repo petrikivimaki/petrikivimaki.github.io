@@ -1,35 +1,18 @@
 {
-  "title": "Publisher",
-  "description": "A client-side markdown knowledge base publisher.",
+  "title": "PMK.DEV",
+  "description": "A safe space for clankers and tokens",
   "site": {
-    "url": "https://petrikivimaki.github.io/",
+    "url": "https://pmk.dev/",
     "customDomain": "",
     "hashRouting": true
   },
   "defaultFile": "README.md",
   "home": {
-    "title": "Publisher",
-    "subtitle": "A client-side knowledge base for publishing markdown vaults.",
-    "ctas": [
-      {
-        "title": "What Publisher does",
-        "description": "A quick orientation to the project.",
-        "path": "start/publisher.md"
-      },
-      {
-        "title": "Setup workflow",
-        "description": "Clone, configure, write, and publish.",
-        "path": "workflow/setup.md"
-      },
-      {
-        "title": "Markdown basics",
-        "description": "Core syntax and project extensions.",
-        "path": "reference/markdown.md"
-      }
-    ],
+    "title": "PMK.DEV",
+    "subtitle": "A safe space for clankers and tokens",
     "background": {
-      "enabled": true,
-      "image": "images/bg-lucerne.jpeg",
+      "enabled": false,
+      "image": "",
       "grayscale": true
     }
   },
@@ -38,6 +21,7 @@
     "owner": "petrikivimaki",
     "repo": "gh-pages-content",
     "branch": "master",
+    "manifestPath": "manifest.json",
     "rootPath": "notes",
     "assetRootPath": "images"
   },
@@ -49,7 +33,7 @@
     "utm": {
       "enabled": true,
       "params": {
-        "utm_source": "petrikivimaki.github.io",
+        "utm_source": "pmk.dev",
         "utm_medium": "referral",
         "utm_campaign": "knowledge-base"
       }
@@ -58,11 +42,29 @@
   "maps": {
     "enabled": true,
     "fallback": {
-      "latitude": 60.1699,
-      "longitude": 24.9384,
+      "latitude": 60.17,
+      "longitude": 24.94,
       "zoom": 11
     },
     "grayscale": true
+  },
+  "periodicTable": {
+    "linkLabel": "PubChem",
+    "linkTemplate": "https://pubchem.ncbi.nlm.nih.gov/element/{Z}"
+  },
+  "selectionMenu": {
+    "searchProviders": [
+      {
+        "label": "Google",
+        "icon": "fa-brands fa-google",
+        "urlTemplate": "https://www.google.com/search?q={selection}"
+      },
+      {
+        "label": "Brave",
+        "icon": "fa-solid fa-magnifying-glass",
+        "urlTemplate": "https://search.brave.com/search?q={selection}"
+      }
+    ]
   },
   "reading": {
     "wordsPerMinute": 225
@@ -72,16 +74,30 @@
     "rootPath": ""
   },
   "linktree": {
-    "links": [
+    "title": "",
+    "subtitle": "",
+    "groups": [
       {
-        "label": "My GitHub",
-        "type": "github",
-        "url": "https://github.com/petrikivimaki"
+        "cards": [
+          {
+            "label": "Helsinki",
+            "timeZone": "Europe/Helsinki"
+          }
+        ]
       },
       {
-        "label": "Project repository",
-        "type": "github",
-        "url": "https://github.com/petrikivimaki/serverless-publisher"
+        "cards": [
+          {
+            "label": "My GitHub",
+            "description": "Clankers and tokens",
+            "url": "https://github.com/petrikivimaki"
+          },
+          {
+            "label": "Project repository",
+            "description": "The source code for this website",
+            "url": "https://github.com/petrikivimaki/papyrus"
+          }
+        ]
       }
     ]
   },
@@ -101,20 +117,25 @@
   },
   "pageLoadAnimation": {
     "enabled": true,
-    "logo": "images/logo-white-transparent-1000x1000.png",
+    "backgroundColor": "rgb(0,0,0)",
+    "logo": "images/papyrus-mark.png",
     "durationMs": 1500,
     "fadeMs": 420
   },
   "appearance": {
+    "primaryMenuSide": "left",
+    "contentWidth": 820,
+    "fontFamily": "modern",
     "fontSize": 18,
     "textAlign": "left",
     "lineHeight": 1.68,
     "theme": "dark",
+    "soundEnabled": true,
     "firstDayOfWeek": 1
   },
   "features": {
     "showFrontmatter": true,
     "showBacklinks": true,
-    "showGraph": true
+    "showInsights": true
   }
 }

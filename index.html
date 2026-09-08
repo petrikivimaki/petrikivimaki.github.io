@@ -5,39 +5,61 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
             name="description"
-            content="Publisher is a serverless markdown knowledge base frontend for Obsidian & GitHub Pages."
+            content="Papyrus is a serverless markdown knowledge base frontend for Obsidian & GitHub Pages."
         />
-        <meta name="application-name" content="Publisher" />
-        <meta name="generator" content="Publisher" />
+        <meta name="application-name" content="Papyrus" />
+        <meta name="generator" content="Papyrus" />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
         <meta name="robots" content="index, follow" />
         <meta name="color-scheme" content="dark light" />
         <meta name="theme-color" content="RGB(17,24,39)" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-title" content="Publisher" />
+        <meta name="apple-mobile-web-app-title" content="Papyrus" />
         <meta
             name="apple-mobile-web-app-status-bar-style"
             content="black-translucent"
         />
         <meta name="format-detection" content="telephone=no" />
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Publisher" />
-        <meta property="og:title" content="Publisher" />
+        <meta property="og:site_name" content="Papyrus" />
+        <meta property="og:title" content="Papyrus" />
         <meta
             property="og:description"
-            content="A serverless markdown knowledge base publisher for Obsidian & GitHub Pages."
+            content="Papyrus is a serverless markdown knowledge base frontend for Obsidian & GitHub Pages."
         />
-        <meta property="og:url" content="https://petrikivimaki.github.io/" />
+        <meta property="og:url" content="https://username.github.io/" />
         <meta property="og:locale" content="en_US" />
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="Publisher" />
+		<meta
+			property="og:image"
+			content="https://username.github.io/images/papyrus-social-card.png"
+		/>
+		<meta property="og:image:type" content="image/png" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta
+			property="og:image:alt"
+			content="Layered cream paper sheets and a rolled scroll on a white background."
+		/>
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Papyrus" />
         <meta
             name="twitter:description"
-            content="A serverless markdown knowledge base publisher for Obsidian & GitHub Pages."
+            content="Papyrus is a serverless markdown knowledge base frontend for Obsidian & GitHub Pages."
         />
-        <link rel="canonical" href="https://petrikivimaki.github.io/" />
-        <title>Publisher</title>
+		<meta
+			name="twitter:image"
+			content="https://username.github.io/images/papyrus-social-card.png"
+		/>
+		<meta
+			name="twitter:image:alt"
+			content="Layered cream paper sheets and a rolled scroll on a white background."
+		/>
+        <link rel="canonical" href="https://username.github.io/" />
+		<link rel="icon" type="image/png" sizes="512x512" href="images/papyrus-mark.png" />
+		<link rel="apple-touch-icon" href="images/papyrus-mark.png" />
+        <title>Papyrus</title>
+		<script type="module" blocking="render" src="scripts/startup.js"></script>
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -50,149 +72,114 @@
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/maplibre-gl@5.12.0/dist/maplibre-gl.css"
         />
-        <link rel="stylesheet" href="styles/main.css" />
-        <script type="module" src="scripts/app.js"></script>
+		<link rel="stylesheet" href="styles/main.css" />
+		<script type="module" src="scripts/bootstrap.js"></script>
     </head>
     <body>
-        <div class="app-shell">
-            <aside class="rail" aria-label="Primary tools">
-                <button
-                    class="rail-button is-active"
-                    type="button"
-                    data-action="open-home"
-                    aria-label="Home"
-                    title="Home"
-                >
-                    <i class="fa-solid fa-house" aria-hidden="true"></i>
-                </button>
-                <button
-                    class="rail-button is-active"
-                    type="button"
-                    data-panel="files"
-                    aria-label="Files"
-                    title="Files"
-                >
-                    <i class="fa-solid fa-folder-tree" aria-hidden="true"></i>
-                </button>
-                <button
-                    class="rail-button"
-                    type="button"
-                    data-panel="search"
-                    aria-label="Search"
-                    title="Search"
-                >
-                    <i
-                        class="fa-solid fa-magnifying-glass"
-                        aria-hidden="true"
-                    ></i>
-                </button>
-                <button
-                    class="rail-button"
-                    type="button"
-                    data-panel="calendar"
-                    aria-label="Calendar"
-                    title="Calendar"
-                >
-                    <i
-                        class="fa-regular fa-calendar-days"
-                        aria-hidden="true"
-                    ></i>
-                </button>
-                <button
-                    class="rail-button"
-                    type="button"
-                    data-panel="bookmarks"
-                    aria-label="Bookmarks"
-                    title="Bookmarks"
-                >
-                    <i class="fa-regular fa-bookmark" aria-hidden="true"></i>
-                </button>
-                <button
-                    class="rail-button"
-                    type="button"
-                    data-panel="graph"
-                    aria-label="Graph"
-                    title="Graph"
-                >
-                    <i
-                        class="fa-solid fa-diagram-project"
-                        aria-hidden="true"
-                    ></i>
-                </button>
-                <button
-                    class="rail-button"
-                    type="button"
-                    data-panel="linktree"
-                    aria-label="Linktree"
-                    title="Linktree"
-                >
-                    <i class="fa-solid fa-link" aria-hidden="true"></i>
-                </button>
-                <div class="rail-spacer" aria-hidden="true"></div>
-                <button
-                    class="rail-button"
-                    type="button"
-                    data-action="rotate-theme"
-                    aria-label="Change theme"
-                    title="Theme: Light"
-                    data-theme-toggle
-                >
-                    <i
-                        class="fa-solid fa-circle-half-stroke"
-                        aria-hidden="true"
-                    ></i>
-                </button>
-                <button
-                    class="rail-button"
-                    type="button"
-                    data-action="toggle-right"
-                    aria-label="Article info"
-                    title="Article info"
-                >
-                    <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
-                </button>
-            </aside>
+		<div class="app-shell is-menu-layout-pending is-primary-menu-collapsed is-secondary-menu-collapsed" data-primary-menu-side="left">
+			<aside class="primary-menu" data-primary-menu>
+				<header class="panel-header panel-brand-header">
+					<div class="panel-brand">
+						<img
+							class="panel-brand-logo"
+							src="images/papyrus-mark.png"
+							width="36"
+							height="36"
+							alt=""
+						/>
+						<h1 data-vault-title>Papyrus</h1>
+					</div>
+					<div class="panel-header-actions">
+						<button
+							class="icon-button"
+							type="button"
+							data-action="close-primary-menu"
+							data-cuelume-hover="tick"
+							data-cuelume-toggle="droplet"
+							aria-label="Close primary menu"
+							title="Close primary menu"
+						>
+							<i class="fa-solid fa-xmark" aria-hidden="true"></i>
+						</button>
+					</div>
+				</header>
 
-            <aside class="left-panel" data-left-panel>
-                <header class="panel-header">
-                    <div>
-                        <p class="eyebrow" data-vault-source>Local vault</p>
-                        <h1 data-vault-title>Publisher</h1>
-                    </div>
-                    <button
-                        class="icon-button"
-                        type="button"
-                        data-action="refresh"
-                        aria-label="Refresh content"
-                        title="Refresh content"
-                    >
-                        <i
-                            class="fa-solid fa-rotate-right"
-                            aria-hidden="true"
-                        ></i>
-                    </button>
-                </header>
+				<nav class="panel-tabs" aria-label="Primary menu views">
+					<button type="button" data-panel="files" data-cuelume-hover="tick" data-cuelume-toggle aria-label="Library" title="Library">
+						<i class="fa-solid fa-folder-tree" aria-hidden="true"></i>
+					</button>
+					<button type="button" data-panel="search" data-cuelume-hover="tick" data-cuelume-toggle aria-label="Search" title="Search">
+						<i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+					</button>
+					<button type="button" data-panel="bookmarks" data-cuelume-hover="tick" data-cuelume-toggle aria-label="Bookmarks" title="Bookmarks">
+						<i class="fa-regular fa-bookmark" aria-hidden="true"></i>
+					</button>
+					<button type="button" data-panel="insights" data-cuelume-hover="tick" data-cuelume-toggle aria-label="Insights" title="Insights">
+						<i class="fa-solid fa-chart-simple" aria-hidden="true"></i>
+					</button>
+					<button type="button" data-panel="linktree" data-cuelume-hover="tick" data-cuelume-toggle aria-label="Links" title="Links">
+						<i class="fa-solid fa-link" aria-hidden="true"></i>
+					</button>
+				</nav>
 
                 <section
                     class="panel-view is-active"
                     data-view="files"
                     aria-label="Files"
                 >
-                    <div class="panel-toolbar">
-                        <label class="field">
-                            <span>Filter files</span>
-                            <input
-                                type="search"
-                                data-file-filter
-                                placeholder="Type to filter"
-                            />
-                        </label>
+                    <div class="vault-toolbar">
+                        <h2>Vault</h2>
+                        <div class="vault-toolbar-actions">
+                            <span class="vault-note-count" data-vault-note-count></span>
+                            <button
+                                class="icon-button"
+                                type="button"
+                                data-action="open-all-folders"
+                                data-cuelume-hover="tick"
+                                data-cuelume-toggle="toggle"
+                                aria-label="Open all folders"
+                                title="Open all folders"
+                            >
+                                <i class="fa-solid fa-angles-down" aria-hidden="true"></i>
+                            </button>
+                            <button
+                                class="icon-button"
+                                type="button"
+                                data-action="close-all-folders"
+                                data-cuelume-hover="tick"
+                                data-cuelume-toggle="toggle"
+                                aria-label="Close all folders"
+                                title="Close all folders"
+                            >
+                                <i class="fa-solid fa-angles-up" aria-hidden="true"></i>
+                            </button>
+                        </div>
                     </div>
                     <nav
                         class="file-tree"
                         data-file-tree
                         aria-label="Markdown files"
-                    ></nav>
+					></nav>
+					<footer class="vault-source-card" aria-label="Vault source">
+						<span class="vault-source-icon" aria-hidden="true">
+							<i class="fa-solid fa-hard-drive" data-vault-source-icon></i>
+						</span>
+						<div class="vault-source-copy">
+							<strong class="vault-source-value" data-vault-source>Local vault</strong>
+							<span class="vault-source-label">Vault source</span>
+						</div>
+						<button
+							class="icon-button"
+							type="button"
+							data-action="refresh"
+							data-cuelume-hover="tick"
+							data-cuelume-toggle="loading"
+							aria-label="Refresh content"
+							title="Refresh content"
+						>
+							<i class="fa-solid fa-rotate-right" aria-hidden="true"></i>
+						</button>
+					</footer>
                 </section>
 
                 <section
@@ -202,23 +189,26 @@
                 >
                     <div class="panel-toolbar">
                         <label class="field">
-                            <span>Search vault</span>
                             <input
                                 type="search"
                                 data-search-input
-                                placeholder="Words, tags, links"
+								placeholder="Search notes..."
+                                aria-label="Search vault"
+                                role="combobox"
+                                aria-autocomplete="list"
+                                aria-controls="vault-search-results"
+                                aria-expanded="false"
                             />
                         </label>
                     </div>
-                    <div class="search-results" data-search-results></div>
-                </section>
-
-                <section
-                    class="panel-view"
-                    data-view="calendar"
-                    aria-label="Calendar"
-                >
-                    <div class="calendar-panel">
+                    <div
+                        class="search-results"
+                        id="vault-search-results"
+                        data-search-results
+                        role="listbox"
+                        aria-label="Search results"
+                    ></div>
+                    <section class="calendar-panel" aria-label="Calendar">
                         <div class="calendar-toolbar">
                             <button
                                 class="icon-button"
@@ -264,7 +254,7 @@
                             class="calendar-grid calendar-days"
                             data-calendar-days
                         ></div>
-                    </div>
+                    </section>
                 </section>
 
                 <section
@@ -290,10 +280,10 @@
 
                 <section
                     class="panel-view"
-                    data-view="graph"
-                    aria-label="Graph"
+                    data-view="insights"
+                    aria-label="Insights"
                 >
-                    <div class="graph-list" data-graph-list></div>
+                    <div class="insights-panel" data-insights></div>
                 </section>
 
                 <section
@@ -306,6 +296,18 @@
             </aside>
 
             <main class="workspace">
+				<div
+					class="article-progress"
+					data-article-progress
+					role="progressbar"
+					aria-label="Article reading progress"
+					aria-valuemin="0"
+					aria-valuemax="100"
+					aria-valuenow="0"
+					hidden
+				>
+					<span class="article-progress-value" data-article-progress-value></span>
+				</div>
                 <article class="article" data-article>
                     <div class="empty-state">
                         <i
@@ -321,13 +323,24 @@
                 </article>
             </main>
 
-            <aside class="right-panel" data-right-panel>
-                <header class="panel-header">
-                    <div>
-                        <p class="eyebrow">Context</p>
-                        <h2>Article info</h2>
-                    </div>
-                </header>
+			<aside class="secondary-menu" data-secondary-menu>
+				<header class="panel-header">
+					<div>
+						<p class="eyebrow">Context</p>
+						<h2>Article info</h2>
+					</div>
+					<button
+						class="icon-button"
+						type="button"
+						data-action="toggle-secondary-menu"
+						data-cuelume-hover="tick"
+						data-cuelume-toggle="droplet"
+						aria-label="Close secondary menu"
+						title="Close secondary menu"
+					>
+						<i class="fa-solid fa-xmark" aria-hidden="true"></i>
+					</button>
+				</header>
                 <section
                     class="info-section qr-code-block"
                     data-qr-code-block
@@ -450,97 +463,7 @@
                         </a>
                     </div>
                 </section>
-                <section class="info-section">
-                    <h3>Text</h3>
-                    <div class="reader-controls" aria-label="Text controls">
-                        <label class="range-control">
-                            <span
-                                >Font size
-                                <output data-font-size-value>18px</output></span
-                            >
-                            <input
-                                type="range"
-                                min="14"
-                                max="24"
-                                step="1"
-                                value="18"
-                                data-font-size
-                            />
-                        </label>
-                        <fieldset class="orientation-control">
-                            <legend>Orientation</legend>
-                            <label title="Align left">
-                                <input
-                                    type="radio"
-                                    name="text-orientation"
-                                    value="left"
-                                    data-text-orientation
-                                />
-                                <i
-                                    class="fa-solid fa-align-left"
-                                    aria-hidden="true"
-                                ></i>
-                                <span>Left</span>
-                            </label>
-                            <label title="Align center">
-                                <input
-                                    type="radio"
-                                    name="text-orientation"
-                                    value="center"
-                                    data-text-orientation
-                                />
-                                <i
-                                    class="fa-solid fa-align-center"
-                                    aria-hidden="true"
-                                ></i>
-                                <span>Center</span>
-                            </label>
-                            <label title="Justify text">
-                                <input
-                                    type="radio"
-                                    name="text-orientation"
-                                    value="justify"
-                                    data-text-orientation
-                                />
-                                <i
-                                    class="fa-solid fa-align-justify"
-                                    aria-hidden="true"
-                                ></i>
-                                <span>Justified</span>
-                            </label>
-                            <label title="Align right">
-                                <input
-                                    type="radio"
-                                    name="text-orientation"
-                                    value="right"
-                                    data-text-orientation
-                                />
-                                <i
-                                    class="fa-solid fa-align-right"
-                                    aria-hidden="true"
-                                ></i>
-                                <span>Right</span>
-                            </label>
-                        </fieldset>
-                        <label class="range-control">
-                            <span
-                                >Line height
-                                <output data-line-height-value
-                                    >1.68</output
-                                ></span
-                            >
-                            <input
-                                type="range"
-                                min="1.2"
-                                max="2.2"
-                                step="0.05"
-                                value="1.68"
-                                data-line-height
-                            />
-                        </label>
-                    </div>
-                </section>
-                <section class="info-section">
+				<section class="info-section">
                     <h3>Metadata</h3>
                     <dl class="metadata-list" data-metadata-list></dl>
                 </section>
@@ -560,35 +483,220 @@
                     <h3>Outgoing links</h3>
                     <div class="link-list" data-outgoing-list></div>
                 </section>
-            </aside>
-        </div>
+			</aside>
+		</div>
 
-        <div class="selection-menu" data-selection-menu hidden>
-            <div class="selection-count" data-selection-count>0 characters</div>
-            <div class="selection-actions">
-                <button type="button" data-action="copy-selection">
-                    <i class="fa-regular fa-copy" aria-hidden="true"></i>
-                    <span>Copy</span>
-                </button>
-                <button type="button" data-action="qr-selection">
-                    <i class="fa-solid fa-qrcode" aria-hidden="true"></i>
-                    <span>QR code</span>
-                </button>
-                <button type="button" data-action="search-selection-google">
-                    <i class="fa-brands fa-google" aria-hidden="true"></i>
-                    <span>Google</span>
-                </button>
-                <button type="button" data-action="search-selection-brave">
-                    <i
-                        class="fa-solid fa-magnifying-glass"
-                        aria-hidden="true"
-                    ></i>
-                    <span>Brave</span>
-                </button>
-            </div>
-        </div>
+		<div class="floating-navigation-wrap">
+			<section
+				id="quick-settings"
+				class="quick-settings"
+				data-quick-settings
+				aria-label="Content appearance"
+				hidden
+			>
+				<div class="settings-row">
+					<span>Timer</span>
+					<div class="settings-options timer-options" aria-label="Focus timer">
+						<button
+							type="button"
+							data-action="cycle-focus-timer"
+							data-timer-duration
+							aria-label="Timer duration: 5 minutes"
+							title="Change timer duration"
+						>
+							5 min
+						</button>
+						<button
+							type="button"
+							data-action="start-focus-timer"
+							aria-label="Start 5 minute timer"
+							title="Start timer"
+						>
+							<i class="fa-solid fa-play" aria-hidden="true"></i>
+							<span>Start</span>
+						</button>
+					</div>
+				</div>
+				<div class="settings-row">
+					<span>Theme</span>
+					<div class="settings-options theme-options" aria-label="Theme">
+						<button type="button" data-theme-choice="light" aria-label="Light theme" title="Light theme">
+							<i class="fa-regular fa-sun" aria-hidden="true"></i>
+						</button>
+						<button type="button" data-theme-choice="sand" aria-label="Sand theme" title="Sand theme">
+							<i class="fa-solid fa-wheat-awn" aria-hidden="true"></i>
+						</button>
+						<button type="button" data-theme-choice="ocean" aria-label="Ocean theme" title="Ocean theme">
+							<i class="fa-solid fa-water" aria-hidden="true"></i>
+						</button>
+						<button type="button" data-theme-choice="dark" aria-label="Dark theme" title="Dark theme">
+							<i class="fa-regular fa-moon" aria-hidden="true"></i>
+						</button>
+					</div>
+				</div>
+				<div class="settings-row">
+					<span>Sound</span>
+					<div class="settings-options sound-options" aria-label="Sound effects">
+						<button type="button" data-sound-choice="on" aria-label="Sound effects on" title="Sound effects on">
+							<i class="fa-solid fa-volume-high" aria-hidden="true"></i>
+						</button>
+						<button type="button" data-sound-choice="off" aria-label="Sound effects off" title="Sound effects off">
+							<i class="fa-solid fa-volume-xmark" aria-hidden="true"></i>
+						</button>
+					</div>
+				</div>
+				<fieldset class="settings-row">
+					<legend>Typeface</legend>
+					<div class="settings-options" aria-label="Typeface">
+						<label title="Literary — Georgia">
+							<input type="radio" name="content-typeface" value="literary" data-font-family aria-label="Literary — Georgia" />
+							<span class="is-literary">Ag</span>
+						</label>
+						<label title="Modern — Arial">
+							<input type="radio" name="content-typeface" value="modern" data-font-family aria-label="Modern — Arial" />
+							<span class="is-modern">Ag</span>
+						</label>
+						<label title="Monospace — Courier New">
+							<input type="radio" name="content-typeface" value="monospace" data-font-family aria-label="Monospace — Courier New" />
+							<span class="is-monospace">Ag</span>
+						</label>
+					</div>
+				</fieldset>
+				<fieldset class="settings-row">
+					<legend>Alignment</legend>
+					<div class="settings-options" aria-label="Text alignment">
+						<label title="Align left">
+							<input type="radio" name="text-orientation" value="left" data-text-orientation />
+							<i class="fa-solid fa-align-left" aria-hidden="true"></i>
+						</label>
+						<label title="Align center">
+							<input type="radio" name="text-orientation" value="center" data-text-orientation />
+							<i class="fa-solid fa-align-center" aria-hidden="true"></i>
+						</label>
+						<label title="Justify text">
+							<input type="radio" name="text-orientation" value="justify" data-text-orientation />
+							<i class="fa-solid fa-align-justify" aria-hidden="true"></i>
+						</label>
+						<label title="Align right">
+							<input type="radio" name="text-orientation" value="right" data-text-orientation />
+							<i class="fa-solid fa-align-right" aria-hidden="true"></i>
+						</label>
+					</div>
+				</fieldset>
+				<label class="settings-range">
+					<span>Size</span>
+					<input type="range" min="14" max="24" step="1" value="18" data-font-size />
+					<output data-font-size-value>18px</output>
+				</label>
+				<label class="settings-range">
+					<span>Leading</span>
+					<input type="range" min="1.2" max="2.2" step="0.05" value="1.68" data-line-height />
+					<output data-line-height-value>1.68</output>
+				</label>
+				<label class="settings-range">
+					<span>Measure</span>
+					<input type="range" min="560" max="960" step="20" value="820" data-content-width />
+					<output data-content-width-value>820px</output>
+				</label>
+			</section>
 
-        <div class="toast" data-toast role="status" aria-live="polite"></div>
+			<div class="navigation-status" data-navigation-status role="status" aria-live="polite" aria-atomic="true">
+				<i class="fa-solid fa-circle-info" data-navigation-status-icon aria-hidden="true"></i>
+				<span data-navigation-status-message></span>
+				<button
+					type="button"
+					class="navigation-status-close"
+					data-action="close-focus-timer"
+					aria-label="Close timer"
+					title="Close timer"
+					hidden
+				>
+					<i class="fa-solid fa-xmark" aria-hidden="true"></i>
+				</button>
+			</div>
+
+			<nav class="floating-navigation" aria-label="Main navigation">
+				<button type="button" data-action="open-home" data-cuelume-hover="tick" data-cuelume-toggle="page" aria-label="Home" title="Home">
+					<i class="fa-solid fa-house" aria-hidden="true"></i>
+					<span>Home</span>
+				</button>
+				<button type="button" data-panel="files" data-cuelume-hover="tick" data-cuelume-toggle aria-label="Library" title="Library">
+					<i class="fa-solid fa-folder-tree" aria-hidden="true"></i>
+					<span>Library</span>
+				</button>
+				<button type="button" data-panel="search" data-cuelume-hover="tick" data-cuelume-toggle aria-label="Search" title="Search">
+					<i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+					<span>Search</span>
+				</button>
+				<button type="button" data-action="scroll-top" data-cuelume-hover="tick" data-cuelume-toggle="droplet" aria-label="Scroll to top" title="Scroll to top" hidden>
+					<i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+					<span>Top</span>
+				</button>
+				<span class="navigation-divider" aria-hidden="true"></span>
+				<button type="button" data-action="toggle-secondary-menu" data-cuelume-hover="tick" data-cuelume-toggle aria-label="Article details" title="Article details">
+					<i class="fa-solid fa-sliders" aria-hidden="true"></i>
+					<span>Details</span>
+				</button>
+				<button
+					type="button"
+					data-action="toggle-settings"
+					data-theme-toggle
+					data-cuelume-hover="tick"
+					data-cuelume-toggle
+					aria-label="Quick settings"
+					aria-controls="quick-settings"
+					aria-expanded="false"
+					title="Quick settings"
+				>
+					<i class="fa-solid fa-gear" aria-hidden="true"></i>
+					<span>Settings</span>
+				</button>
+			</nav>
+		</div>
+
+		<div class="selection-menu" data-selection-menu aria-label="Selected text tools" hidden>
+			<div class="selection-summary">
+				<span class="selection-summary-icon" aria-hidden="true">
+					<i class="fa-solid fa-text-height"></i>
+				</span>
+				<span class="selection-summary-copy">
+					<strong>Selected text</strong>
+					<span class="selection-count" data-selection-count>0 characters</span>
+				</span>
+			</div>
+			<div class="selection-actions">
+				<button type="button" data-action="copy-selection">
+					<i class="fa-regular fa-copy" aria-hidden="true"></i>
+					<span>Copy</span>
+				</button>
+				<button type="button" data-action="qr-selection">
+					<i class="fa-solid fa-qrcode" aria-hidden="true"></i>
+					<span>QR code</span>
+				</button>
+				<div class="selection-search" data-selection-search hidden>
+					<div class="selection-search-direct" data-selection-search-direct></div>
+					<button
+						type="button"
+						class="selection-search-toggle"
+						data-action="toggle-selection-search"
+						aria-controls="selection-search-options"
+						aria-expanded="false"
+						hidden
+					>
+						<i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+						<span>Search with</span>
+						<span class="selection-search-count" data-selection-search-count></span>
+						<i class="fa-solid fa-chevron-down selection-disclosure-icon" aria-hidden="true"></i>
+					</button>
+					<div
+						id="selection-search-options"
+						class="selection-search-options"
+						data-selection-search-options
+						hidden
+					></div>
+				</div>
+			</div>
+		</div>
         <div class="page-load-mask" data-page-load-mask aria-hidden="true">
             <img class="page-load-logo" src="" alt="" data-page-load-logo />
         </div>
